@@ -22,6 +22,17 @@ type Order struct {
 	Total float64
 }
 
+// interfaces
+type ItemPrice interface {
+	GetPrice() float64
+}
+
+type Catalog interface {
+	AddProduct(product Product)
+	GetProductByID(id int) (Product, error)
+	ListProductByCategory(category Category) []Product
+}
+
 func main() {
 
 }
