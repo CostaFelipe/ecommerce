@@ -1,6 +1,9 @@
 package main
 
-import "time"
+import (
+	"errors"
+	"time"
+)
 
 type Category string
 
@@ -39,6 +42,16 @@ func (p Product) GetPrice() float64 {
 
 func (cart *ShoppingCart) AddItem(product Product) {
 	cart.Items = append(cart.Items, product)
+}
+
+func (cart *ShoppingCart) RemoverItem(ProductID int) error {
+	for i, item := range cart.Items {
+		if item.ID == ProductID {
+			cart.Items = append(cart.Items[:i], cart.Items[i+1:]...)
+			return nil
+		}
+	}
+	return errors.New("produto não encontrado no carrinho")
 }
 
 func main() {
