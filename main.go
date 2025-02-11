@@ -44,9 +44,9 @@ func (cart *ShoppingCart) AddItem(product Product) {
 	cart.Items = append(cart.Items, product)
 }
 
-func (cart *ShoppingCart) RemoverItem(ProductID int) error {
+func (cart *ShoppingCart) RemoverItem(productID int) error {
 	for i, item := range cart.Items {
-		if item.ID == ProductID {
+		if item.ID == productID {
 			cart.Items = append(cart.Items[:i], cart.Items[i+1:]...)
 			return nil
 		}
