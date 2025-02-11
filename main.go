@@ -33,6 +33,14 @@ type Catalog interface {
 	ListProductByCategory(category Category) []Product
 }
 
+func (p Product) GetPrice() float64 {
+	return p.Price
+}
+
+func (cart *ShoppingCart) AddItem(product Product) {
+	cart.Items = append(cart.Items, product)
+}
+
 func main() {
 
 }
