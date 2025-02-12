@@ -54,6 +54,14 @@ func (cart *ShoppingCart) RemoverItem(productID int) error {
 	return errors.New("produto não encontrado no carrinho")
 }
 
+func (cart *ShoppingCart) CalculateTotal() float64 {
+	total := 0.0
+	for _, item := range cart.Items {
+		total += item.GetPrice()
+	}
+	return total
+}
+
 func main() {
 
 }
