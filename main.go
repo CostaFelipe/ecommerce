@@ -62,6 +62,20 @@ func (cart *ShoppingCart) CalculateTotal() float64 {
 	return total
 }
 
+func (cart ShoppingCart) GetPrice() float64 {
+	return cart.CalculateTotal()
+}
+
+type InMemoryCatalog struct {
+	products map[int]Product
+}
+
+func NewInMemoryCatalog() *InMemoryCatalog {
+	return &InMemoryCatalog{
+		products: make(map[int]Product),
+	}
+}
+
 func main() {
 
 }
