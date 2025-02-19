@@ -76,6 +76,10 @@ func NewInMemoryCatalog() *InMemoryCatalog {
 	}
 }
 
+func (catalog *InMemoryCatalog) AddProduct(product Product) {
+	catalog.products[product.ID] = product
+}
+
 func main() {
 
 }
